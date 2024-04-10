@@ -1,6 +1,6 @@
 import React from "react";
-import { Box, Heading, Text, VStack, HStack, Wrap, WrapItem, Card, CardHeader, CardBody, Image, Stack, Divider, Avatar, Link, IconButton, useColorModeValue } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { Box, Heading, Text, VStack, HStack, Wrap, WrapItem, Card, CardHeader, CardBody, Image, Stack, Divider, Avatar, Link, IconButton, useColorMode, useColorModeValue, Button } from "@chakra-ui/react";
+import { FaGithub, FaLinkedin, FaEnvelope, FaSun, FaMoon } from "react-icons/fa";
 
 const projects = [
   {
@@ -39,8 +39,13 @@ const posts = [
 ];
 
 const Index = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box maxWidth="960px" margin="auto" padding={8}>
+      <Box position="absolute" top={4} right={4}>
+        <Button onClick={toggleColorMode}>{colorMode === "light" ? <FaMoon /> : <FaSun />}</Button>
+      </Box>
       <VStack spacing={8} align="stretch">
         <Box textAlign="center">
           <Avatar size="2xl" name="John Doe" src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxwcm9ncmFtbWVyJTIwaGVhZHNob3R8ZW58MHx8fHwxNzEyNzEwMjEyfDA&ixlib=rb-4.0.3&q=80&w=1080" marginBottom={4} />
